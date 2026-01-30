@@ -76,6 +76,7 @@
             label1 = new Label();
             panel5 = new Panel();
             timer1 = new System.Windows.Forms.Timer(components);
+            Closelb = new Label();
             panel1.SuspendLayout();
             FriestxtBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
@@ -93,6 +94,7 @@
             // panel1
             // 
             panel1.BackColor = Color.Red;
+            panel1.Controls.Add(Closelb);
             panel1.Controls.Add(Datelbl);
             panel1.Controls.Add(topPanellb);
             panel1.Dock = DockStyle.Top;
@@ -579,6 +581,18 @@
             // 
             timer1.Tick += timer1_Tick;
             // 
+            // Closelb
+            // 
+            Closelb.AutoSize = true;
+            Closelb.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Closelb.ForeColor = Color.Gold;
+            Closelb.Location = new Point(1291, 0);
+            Closelb.Name = "Closelb";
+            Closelb.Size = new Size(35, 38);
+            Closelb.TabIndex = 2;
+            Closelb.Text = "X";
+            Closelb.Click += Closelb_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -657,5 +671,6 @@
         private CheckBox WaterChBx;
         private System.Windows.Forms.Timer timer1;
         private Label Datelbl;
+        private Label Closelb;
     }
 }

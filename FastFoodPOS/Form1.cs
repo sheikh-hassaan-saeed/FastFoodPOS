@@ -1,3 +1,5 @@
+using System.Reflection;
+
 namespace FastFoodPOS
 {
     public partial class Form1 : Form
@@ -170,6 +172,11 @@ namespace FastFoodPOS
             {
                 Custardtxt.Text = "";
             }
+        }
+
+        private void Closelb_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
