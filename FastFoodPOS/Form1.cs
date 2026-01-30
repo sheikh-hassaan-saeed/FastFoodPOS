@@ -178,5 +178,44 @@ namespace FastFoodPOS
         {
             Application.Exit();
         }
+
+        //Decleration of Unit Prices
+        double friesup = 50, burgerup = 150, sandwichup = 280, chickenup = 550, cheeseup = 800;
+        double waterup = 80, colaup = 120, teaup = 70, custardup = 300;
+
+        //Declreation of variables that will hold the price by multiplying the quantity
+        double friestp, burgertp, sandwichtp, chickentp, cheesetp, watertp, teatp, colatp, custardtp;
+
+        private void AddBtn_Click(object sender, EventArgs e)
+        {
+            // TryParse to safely continue even if the text box is empty
+            double.TryParse(Friestxt.Text, out double friesQty);
+            double.TryParse(Burgertxt.Text, out double burgerQty);
+            double.TryParse(Sandwichtxt.Text, out double sandwichQty);
+            double.TryParse(Chickentxt.Text, out double chickenQty);
+            double.TryParse(Cheesetxt.Text, out double cheeseQty);
+            double.TryParse(Watertxt.Text, out double waterQty);
+            double.TryParse(Colatxt.Text, out double colaQty);
+            double.TryParse(Teatxt.Text, out double teaQty);
+            double.TryParse(Custardtxt.Text, out double custardQty);
+
+            friestp = friesup * friesQty;
+            burgertp = burgerup * burgerQty;
+            sandwichtp = sandwichup * sandwichQty;
+            chickentp = chickenup * chickenQty;
+            cheesetp = cheeseup * cheeseQty;
+            watertp = waterup * waterQty;
+            colatp = colaup * colaQty;
+            teatp = teaup * teaQty;
+            custardtp = custardup * custardQty;
+
+            // --- Build Receipt ---
+            ReceiptTb.Clear();
+            ReceiptTb.AppendText(Environment.NewLine);
+            ReceiptTb.AppendText("\t\t\tTASTY RESTAURANT" + Environment.NewLine);
+            ReceiptTb.AppendText("\t\t\t*****************" + Environment.NewLine);
+
+            // Add logic here to display items...
+        }
     }
 }

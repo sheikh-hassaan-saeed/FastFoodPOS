@@ -31,6 +31,7 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             panel1 = new Panel();
+            Closelb = new Label();
             Datelbl = new Label();
             topPanellb = new Label();
             FriestxtBox = new Panel();
@@ -76,7 +77,17 @@
             label1 = new Label();
             panel5 = new Panel();
             timer1 = new System.Windows.Forms.Timer(components);
-            Closelb = new Label();
+            panel2 = new Panel();
+            PrintBtn = new Button();
+            AddBtn = new Button();
+            ResetBtn = new Button();
+            label3 = new Label();
+            label2 = new Label();
+            Rslb = new Label();
+            Totallb = new Label();
+            Taxlb = new Label();
+            SubTotallb = new Label();
+            ReceiptTb = new RichTextBox();
             panel1.SuspendLayout();
             FriestxtBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
@@ -89,6 +100,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox9).BeginInit();
+            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -102,6 +114,18 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1338, 84);
             panel1.TabIndex = 0;
+            // 
+            // Closelb
+            // 
+            Closelb.AutoSize = true;
+            Closelb.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Closelb.ForeColor = Color.Gold;
+            Closelb.Location = new Point(1291, 0);
+            Closelb.Name = "Closelb";
+            Closelb.Size = new Size(35, 38);
+            Closelb.TabIndex = 2;
+            Closelb.Text = "X";
+            Closelb.Click += Closelb_Click;
             // 
             // Datelbl
             // 
@@ -581,23 +605,142 @@
             // 
             timer1.Tick += timer1_Tick;
             // 
-            // Closelb
+            // panel2
             // 
-            Closelb.AutoSize = true;
-            Closelb.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            Closelb.ForeColor = Color.Gold;
-            Closelb.Location = new Point(1291, 0);
-            Closelb.Name = "Closelb";
-            Closelb.Size = new Size(35, 38);
-            Closelb.TabIndex = 2;
-            Closelb.Text = "X";
-            Closelb.Click += Closelb_Click;
+            panel2.Controls.Add(PrintBtn);
+            panel2.Controls.Add(AddBtn);
+            panel2.Controls.Add(ResetBtn);
+            panel2.Controls.Add(label3);
+            panel2.Controls.Add(label2);
+            panel2.Controls.Add(Rslb);
+            panel2.Controls.Add(Totallb);
+            panel2.Controls.Add(Taxlb);
+            panel2.Controls.Add(SubTotallb);
+            panel2.Dock = DockStyle.Bottom;
+            panel2.Location = new Point(332, 593);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(679, 144);
+            panel2.TabIndex = 3;
+            // 
+            // PrintBtn
+            // 
+            PrintBtn.BackColor = Color.LemonChiffon;
+            PrintBtn.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            PrintBtn.ForeColor = Color.Red;
+            PrintBtn.Location = new Point(463, 86);
+            PrintBtn.Name = "PrintBtn";
+            PrintBtn.Size = new Size(112, 46);
+            PrintBtn.TabIndex = 13;
+            PrintBtn.Text = "PRINT";
+            PrintBtn.UseVisualStyleBackColor = false;
+            // 
+            // AddBtn
+            // 
+            AddBtn.BackColor = Color.LemonChiffon;
+            AddBtn.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            AddBtn.ForeColor = Color.Red;
+            AddBtn.Location = new Point(243, 86);
+            AddBtn.Name = "AddBtn";
+            AddBtn.Size = new Size(112, 46);
+            AddBtn.TabIndex = 12;
+            AddBtn.Text = "ADD";
+            AddBtn.UseVisualStyleBackColor = false;
+            AddBtn.Click += AddBtn_Click;
+            // 
+            // ResetBtn
+            // 
+            ResetBtn.BackColor = Color.LemonChiffon;
+            ResetBtn.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            ResetBtn.ForeColor = Color.Red;
+            ResetBtn.Location = new Point(30, 86);
+            ResetBtn.Name = "ResetBtn";
+            ResetBtn.Size = new Size(112, 46);
+            ResetBtn.TabIndex = 11;
+            ResetBtn.Text = "RESET";
+            ResetBtn.UseVisualStyleBackColor = false;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.ForeColor = Color.Black;
+            label3.Location = new Point(528, 20);
+            label3.Name = "label3";
+            label3.Size = new Size(59, 28);
+            label3.TabIndex = 10;
+            label3.Text = "Rs/--";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.Black;
+            label2.Location = new Point(293, 20);
+            label2.Name = "label2";
+            label2.Size = new Size(59, 28);
+            label2.TabIndex = 9;
+            label2.Text = "Rs/--";
+            // 
+            // Rslb
+            // 
+            Rslb.AutoSize = true;
+            Rslb.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Rslb.ForeColor = Color.Black;
+            Rslb.Location = new Point(112, 20);
+            Rslb.Name = "Rslb";
+            Rslb.Size = new Size(59, 28);
+            Rslb.TabIndex = 8;
+            Rslb.Text = "Rs/--";
+            // 
+            // Totallb
+            // 
+            Totallb.AutoSize = true;
+            Totallb.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Totallb.ForeColor = Color.Red;
+            Totallb.Location = new Point(463, 20);
+            Totallb.Name = "Totallb";
+            Totallb.Size = new Size(59, 28);
+            Totallb.TabIndex = 7;
+            Totallb.Text = "Total";
+            // 
+            // Taxlb
+            // 
+            Taxlb.AutoSize = true;
+            Taxlb.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Taxlb.ForeColor = Color.Red;
+            Taxlb.Location = new Point(243, 20);
+            Taxlb.Name = "Taxlb";
+            Taxlb.Size = new Size(44, 28);
+            Taxlb.TabIndex = 6;
+            Taxlb.Text = "Tax";
+            // 
+            // SubTotallb
+            // 
+            SubTotallb.AutoSize = true;
+            SubTotallb.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            SubTotallb.ForeColor = Color.Red;
+            SubTotallb.Location = new Point(6, 20);
+            SubTotallb.Name = "SubTotallb";
+            SubTotallb.Size = new Size(100, 28);
+            SubTotallb.TabIndex = 5;
+            SubTotallb.Text = "Sub Total";
+            // 
+            // ReceiptTb
+            // 
+            ReceiptTb.BorderStyle = BorderStyle.None;
+            ReceiptTb.Location = new Point(338, 90);
+            ReceiptTb.Name = "ReceiptTb";
+            ReceiptTb.Size = new Size(667, 497);
+            ReceiptTb.TabIndex = 4;
+            ReceiptTb.Text = "";
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1338, 737);
+            Controls.Add(ReceiptTb);
+            Controls.Add(panel2);
             Controls.Add(panel3);
             Controls.Add(FriestxtBox);
             Controls.Add(panel1);
@@ -620,6 +763,8 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox9).EndInit();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -672,5 +817,16 @@
         private System.Windows.Forms.Timer timer1;
         private Label Datelbl;
         private Label Closelb;
+        private Panel panel2;
+        private Button ResetBtn;
+        private Label label3;
+        private Label label2;
+        private Label Rslb;
+        private Label Totallb;
+        private Label Taxlb;
+        private Label SubTotallb;
+        private Button PrintBtn;
+        private Button AddBtn;
+        private RichTextBox ReceiptTb;
     }
 }
