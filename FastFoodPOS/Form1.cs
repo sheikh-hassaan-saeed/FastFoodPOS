@@ -1,4 +1,7 @@
 using System.Reflection;
+using System.Runtime.InteropServices.Marshalling;
+using Application = System.Windows.Forms.Application;
+
 
 namespace FastFoodPOS
 {
@@ -29,6 +32,12 @@ namespace FastFoodPOS
 
         }
 
+        
+        private void Closelb_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             Datelbl.Text = DateTime.Now.ToLongTimeString();
@@ -41,9 +50,9 @@ namespace FastFoodPOS
 
         private void FriedChBx_CheckedChanged(object sender, EventArgs e)
         {
-            Friestxt.Enabled = FriedChBx.Checked;
+            Friestxt.Enabled = FriesChBx.Checked;
 
-            if (FriedChBx.Checked)
+            if (FriesChBx.Checked)
             {
                 Friestxt.Text = "0";
                 Friestxt.Focus();
@@ -174,17 +183,13 @@ namespace FastFoodPOS
             }
         }
 
-        private void Closelb_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
 
         //Decleration of Unit Prices
         double friesup = 50, burgerup = 150, sandwichup = 280, chickenup = 550, cheeseup = 800;
         double waterup = 80, colaup = 120, teaup = 70, custardup = 300;
 
         //Declreation of variables that will hold the price by multiplying the quantity
-        double friestp, burgertp, sandwichtp, chickentp, cheesetp, watertp, teatp, colatp, custardtp;
+        double friestp, burgertp, sandwichtp, chickentp, cheesetp, watertp, teatp, colatp, custardtp, subtotal;
 
         private void AddBtn_Click(object sender, EventArgs e)
         {
@@ -210,12 +215,68 @@ namespace FastFoodPOS
             custardtp = custardup * custardQty;
 
             // --- Build Receipt ---
+            subtotal = 0;
             ReceiptTb.Clear();
             ReceiptTb.AppendText(Environment.NewLine);
             ReceiptTb.AppendText("\t\t\tTASTY RESTAURANT" + Environment.NewLine);
             ReceiptTb.AppendText("\t\t\t*****************" + Environment.NewLine);
 
-            // Add logic here to display items...
+            if (FriesChBx.Checked == true)
+            {
+                ReceiptTb.AppendText($"\tFries: {friestp}\n");
+                subtotal += friestp;
+            }
+
+            if (BurgerChBx.Checked == true)
+            {
+                ReceiptTb.AppendText("\tBurger:\t" + burgertp + Environment.NewLine);
+                subtotal += burgertp;
+            }
+
+            if (SandwichChBx.Checked == true)
+            {
+                ReceiptTb.AppendText($"\tSandwich: {sandwichtp}\n");
+                subtotal += sandwichtp;
+            }
+
+            if (ChickenChBx.Checked == true)
+            {
+                ReceiptTb.AppendText("\tChicken:\t" + chickentp + Environment.NewLine);
+                subtotal += chickentp;
+            }
+
+            if (CheeseChBx.Checked == true)
+            {
+                ReceiptTb.AppendText("\tCheese:\t" + cheesetp + Environment.NewLine);
+                subtotal += cheesetp;
+            }
+
+            if (WaterChBx.Checked == true)
+            {
+                ReceiptTb.AppendText("\tWater:\t" + watertp + Environment.NewLine);
+                subtotal += watertp;
+            }
+
+            if (ColaChBx.Checked == true)
+            {
+                ReceiptTb.AppendText("\tCola:\t" + colatp + Environment.NewLine);
+                subtotal += colatp;
+            }
+
+            if (TeaChBx.Checked == true)
+            {
+                ReceiptTb.AppendText("\tTea:\t" + teatp + Environment.NewLine);
+                subtotal += teatp;
+            }
+
+            if (CustardChBx.Checked == true)
+            {
+                ReceiptTb.AppendText("\tCustard:\t" + custardtp + Environment.NewLine);
+                subtotal += custardtp;
+            }
+
+            SubTotallb.Text = subtotal.ToString("N2");
+
         }
     }
 }

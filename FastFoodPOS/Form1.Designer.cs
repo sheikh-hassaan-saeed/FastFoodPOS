@@ -54,7 +54,7 @@
             Frieslb = new Label();
             BurgerChBx = new CheckBox();
             pictureBox1 = new PictureBox();
-            FriedChBx = new CheckBox();
+            FriesChBx = new CheckBox();
             FastMeallb = new Label();
             panel4 = new Panel();
             panel3 = new Panel();
@@ -170,13 +170,13 @@
             FriestxtBox.Controls.Add(Frieslb);
             FriestxtBox.Controls.Add(BurgerChBx);
             FriestxtBox.Controls.Add(pictureBox1);
-            FriestxtBox.Controls.Add(FriedChBx);
+            FriestxtBox.Controls.Add(FriesChBx);
             FriestxtBox.Controls.Add(FastMeallb);
             FriestxtBox.Controls.Add(panel4);
             FriestxtBox.Dock = DockStyle.Left;
             FriestxtBox.Location = new Point(0, 84);
             FriestxtBox.Name = "FriestxtBox";
-            FriestxtBox.Size = new Size(332, 653);
+            FriestxtBox.Size = new Size(332, 645);
             FriestxtBox.TabIndex = 1;
             // 
             // Cheesetxt
@@ -367,15 +367,15 @@
             pictureBox1.TabIndex = 3;
             pictureBox1.TabStop = false;
             // 
-            // FriedChBx
+            // FriesChBx
             // 
-            FriedChBx.AutoSize = true;
-            FriedChBx.Location = new Point(44, 107);
-            FriedChBx.Name = "FriedChBx";
-            FriedChBx.Size = new Size(22, 21);
-            FriedChBx.TabIndex = 2;
-            FriedChBx.UseVisualStyleBackColor = true;
-            FriedChBx.CheckedChanged += FriedChBx_CheckedChanged;
+            FriesChBx.AutoSize = true;
+            FriesChBx.Location = new Point(44, 107);
+            FriesChBx.Name = "FriesChBx";
+            FriesChBx.Size = new Size(22, 21);
+            FriesChBx.TabIndex = 2;
+            FriesChBx.UseVisualStyleBackColor = true;
+            FriesChBx.CheckedChanged += FriedChBx_CheckedChanged;
             // 
             // FastMeallb
             // 
@@ -395,7 +395,7 @@
             panel4.Dock = DockStyle.Left;
             panel4.Location = new Point(0, 0);
             panel4.Name = "panel4";
-            panel4.Size = new Size(37, 653);
+            panel4.Size = new Size(37, 645);
             panel4.TabIndex = 0;
             // 
             // panel3
@@ -421,7 +421,7 @@
             panel3.Dock = DockStyle.Right;
             panel3.Location = new Point(1011, 84);
             panel3.Name = "panel3";
-            panel3.Size = new Size(327, 653);
+            panel3.Size = new Size(327, 645);
             panel3.TabIndex = 2;
             // 
             // Custardtxt
@@ -598,7 +598,7 @@
             panel5.Dock = DockStyle.Right;
             panel5.Location = new Point(285, 0);
             panel5.Name = "panel5";
-            panel5.Size = new Size(42, 653);
+            panel5.Size = new Size(42, 645);
             panel5.TabIndex = 0;
             // 
             // timer1
@@ -617,7 +617,7 @@
             panel2.Controls.Add(Taxlb);
             panel2.Controls.Add(SubTotallb);
             panel2.Dock = DockStyle.Bottom;
-            panel2.Location = new Point(332, 593);
+            panel2.Location = new Point(332, 585);
             panel2.Name = "panel2";
             panel2.Size = new Size(679, 144);
             panel2.TabIndex = 3;
@@ -738,7 +738,7 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1338, 737);
+            ClientSize = new Size(1338, 729);
             Controls.Add(ReceiptTb);
             Controls.Add(panel2);
             Controls.Add(panel3);
@@ -779,7 +779,7 @@
         private Panel panel5;
         private Label label1;
         private PictureBox pictureBox1;
-        private CheckBox FriedChBx;
+        private CheckBox FriesChBx;
         private Label Frieslb;
         private TextBox Friestxt;
         private TextBox Cheesetxt;
