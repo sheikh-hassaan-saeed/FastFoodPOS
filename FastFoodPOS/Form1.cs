@@ -229,7 +229,7 @@ namespace FastFoodPOS
 
             if (BurgerChBx.Checked == true)
             {
-                ReceiptTb.AppendText("\tBurger:\t" + burgertp + Environment.NewLine);
+                ReceiptTb.AppendText($"\tBurger: {burgertp}\n");
                 subtotal += burgertp;
             }
 
@@ -241,37 +241,37 @@ namespace FastFoodPOS
 
             if (ChickenChBx.Checked == true)
             {
-                ReceiptTb.AppendText("\tChicken:\t" + chickentp + Environment.NewLine);
+                ReceiptTb.AppendText($"\tChicken: {chickentp}\n");
                 subtotal += chickentp;
             }
 
             if (CheeseChBx.Checked == true)
             {
-                ReceiptTb.AppendText("\tCheese:\t" + cheesetp + Environment.NewLine);
+                ReceiptTb.AppendText($"\tCheese: {cheesetp}\n");
                 subtotal += cheesetp;
             }
 
             if (WaterChBx.Checked == true)
             {
-                ReceiptTb.AppendText("\tWater:\t" + watertp + Environment.NewLine);
+                ReceiptTb.AppendText($"\tWater: {watertp}\n");
                 subtotal += watertp;
             }
 
             if (ColaChBx.Checked == true)
             {
-                ReceiptTb.AppendText("\tCola:\t" + colatp + Environment.NewLine);
+                ReceiptTb.AppendText($"\tCola: {colatp}\n");
                 subtotal += colatp;
             }
 
             if (TeaChBx.Checked == true)
             {
-                ReceiptTb.AppendText("\tTea:\t" + teatp + Environment.NewLine);
+                ReceiptTb.AppendText($"\tTea: {teatp}\n");
                 subtotal += teatp;
             }
 
             if (CustardChBx.Checked == true)
             {
-                ReceiptTb.AppendText("\tCustard:\t" + custardtp + Environment.NewLine);
+                ReceiptTb.AppendText($"\tCustard: {custardtp}\n");
                 subtotal += custardtp;
             }
 
