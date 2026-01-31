@@ -1,3 +1,4 @@
+using System.Drawing.Printing;
 using System.Reflection;
 using System.Runtime.InteropServices.Marshalling;
 using Application = System.Windows.Forms.Application;
@@ -32,7 +33,7 @@ namespace FastFoodPOS
 
         }
 
-        
+
         private void Closelb_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -189,7 +190,9 @@ namespace FastFoodPOS
         double waterup = 80, colaup = 120, teaup = 70, custardup = 300;
 
         //Declreation of variables that will hold the price by multiplying the quantity
-        double friestp, burgertp, sandwichtp, chickentp, cheesetp, watertp, teatp, colatp, custardtp, subtotal;
+        double friestp, burgertp, sandwichtp, chickentp, cheesetp, watertp, teatp, colatp, custardtp;
+
+
 
         private void AddBtn_Click(object sender, EventArgs e)
         {
@@ -215,7 +218,7 @@ namespace FastFoodPOS
             custardtp = custardup * custardQty;
 
             // --- Build Receipt ---
-            subtotal = 0;
+            double subtotal = 0;
             ReceiptTb.Clear();
             ReceiptTb.AppendText(Environment.NewLine);
             ReceiptTb.AppendText("\t\t\tTASTY RESTAURANT" + Environment.NewLine);
@@ -223,55 +226,55 @@ namespace FastFoodPOS
 
             if (FriesChBx.Checked == true)
             {
-                ReceiptTb.AppendText($"\tFries: {friestp}\n");
+                ReceiptTb.AppendText($"\t\t\tFries: {friestp}\n");
                 subtotal += friestp;
             }
 
             if (BurgerChBx.Checked == true)
             {
-                ReceiptTb.AppendText($"\tBurger: {burgertp}\n");
+                ReceiptTb.AppendText($"\t\t\tBurger: {burgertp}\n");
                 subtotal += burgertp;
             }
 
             if (SandwichChBx.Checked == true)
             {
-                ReceiptTb.AppendText($"\tSandwich: {sandwichtp}\n");
+                ReceiptTb.AppendText($"\t\t\tSandwich: {sandwichtp}\n");
                 subtotal += sandwichtp;
             }
 
             if (ChickenChBx.Checked == true)
             {
-                ReceiptTb.AppendText($"\tChicken: {chickentp}\n");
+                ReceiptTb.AppendText($"\t\t\tChicken: {chickentp}\n");
                 subtotal += chickentp;
             }
 
             if (CheeseChBx.Checked == true)
             {
-                ReceiptTb.AppendText($"\tCheese: {cheesetp}\n");
+                ReceiptTb.AppendText($"\t\t\tCheese: {cheesetp}\n");
                 subtotal += cheesetp;
             }
 
             if (WaterChBx.Checked == true)
             {
-                ReceiptTb.AppendText($"\tWater: {watertp}\n");
+                ReceiptTb.AppendText($"\t\t\tWater: {watertp}\n");
                 subtotal += watertp;
             }
 
             if (ColaChBx.Checked == true)
             {
-                ReceiptTb.AppendText($"\tCola: {colatp}\n");
+                ReceiptTb.AppendText($"\t\t\tCola: {colatp}\n");
                 subtotal += colatp;
             }
 
             if (TeaChBx.Checked == true)
             {
-                ReceiptTb.AppendText($"\tTea: {teatp}\n");
+                ReceiptTb.AppendText($"\t\t\tTea: {teatp}\n");
                 subtotal += teatp;
             }
 
             if (CustardChBx.Checked == true)
             {
-                ReceiptTb.AppendText($"\tCustard: {custardtp}\n");
+                ReceiptTb.AppendText($"\t\t\t Custard: {custardtp}\n");
                 subtotal += custardtp;
             }
 
@@ -280,6 +283,75 @@ namespace FastFoodPOS
             //calulating tax
             double tax = subtotal * 0.05;
             Taxlb.Text = tax.ToString("N2");
+
+            //calculating total
+            double total = subtotal + tax;
+            Totallb.Text = total.ToString("N2");
+
+
+            ReceiptTb.AppendText("\t\t\t----------------------------------------\n");
+            ReceiptTb.AppendText($"\t\t\tSubtotal:                     {subtotal,7:N2}\n");
+            ReceiptTb.AppendText($"\t\t\tTax (5%):                     {tax,7:N2}\n");
+            ReceiptTb.AppendText($"\t\t\tTOTAL:                        {total,7:N2}\n");
+            ReceiptTb.AppendText("\t\t\t----------------------------------------\n");
+
+
+
+
         }
+
+        private void ResetBtn_Click(object sender, EventArgs e)
+        {
+            // Uncheck all checkboxes
+            FriesChBx.Checked = false;
+            BurgerChBx.Checked = false;
+            SandwichChBx.Checked = false;
+            ChickenChBx.Checked = false;
+            CheeseChBx.Checked = false;
+            WaterChBx.Checked = false;
+            ColaChBx.Checked = false;
+            TeaChBx.Checked = false;
+            CustardChBx.Checked = false;
+
+            // Clear all textboxes
+            Friestxt.Text = "";
+            Burgertxt.Text = "";
+            Sandwichtxt.Text = "";
+            Chickentxt.Text = "";
+            Cheesetxt.Text = "";
+            Watertxt.Text = "";
+            Colatxt.Text = "";
+            Teatxt.Text = "";
+            Custardtxt.Text = "";
+
+            // Clear labels
+            SubTotallb.Text = "";
+            Taxlb.Text = "";
+            Totallb.Text = "";
+
+            // Clear receipt
+            ReceiptTb.Clear();
+        }
+
+        private void PrintBtn_Click(object sender, EventArgs e)
+        {
+            PrintDocument pd = new PrintDocument();
+            pd.PrintPage += new PrintPageEventHandler(PrintReceipt);
+
+            PrintDialog printDialog = new PrintDialog();
+            printDialog.Document = pd;
+
+            if (printDialog.ShowDialog() == DialogResult.OK)
+            {
+                pd.Print();
+            }
+
+        }
+
+        private void PrintReceipt(object sender, PrintPageEventArgs e)
+        {
+            e.Graphics.DrawString(ReceiptTb.Text, new Font("Courier New", 12), Brushes.Black, new PointF(40, 40));
+        }
+
     }
 }

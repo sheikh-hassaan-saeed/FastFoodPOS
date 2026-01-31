@@ -633,6 +633,7 @@
             PrintBtn.TabIndex = 13;
             PrintBtn.Text = "PRINT";
             PrintBtn.UseVisualStyleBackColor = false;
+            PrintBtn.Click += PrintBtn_Click;
             // 
             // AddBtn
             // 
@@ -658,6 +659,7 @@
             ResetBtn.TabIndex = 11;
             ResetBtn.Text = "RESET";
             ResetBtn.UseVisualStyleBackColor = false;
+            ResetBtn.Click += ResetBtn_Click;
             // 
             // label3
             // 
@@ -697,7 +699,7 @@
             Totallb.AutoSize = true;
             Totallb.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Totallb.ForeColor = Color.Red;
-            Totallb.Location = new Point(463, 20);
+            Totallb.Location = new Point(452, 20);
             Totallb.Name = "Totallb";
             Totallb.Size = new Size(59, 28);
             Totallb.TabIndex = 7;
