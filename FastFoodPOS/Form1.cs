@@ -219,7 +219,7 @@ namespace FastFoodPOS
             ReceiptTb.Clear();
             ReceiptTb.AppendText(Environment.NewLine);
             ReceiptTb.AppendText("\t\t\tTASTY RESTAURANT" + Environment.NewLine);
-            ReceiptTb.AppendText("\t\t\t*****************" + Environment.NewLine);
+            ReceiptTb.AppendText("\t\t\t-----------------" + Environment.NewLine);
 
             if (FriesChBx.Checked == true)
             {
@@ -277,6 +277,9 @@ namespace FastFoodPOS
 
             SubTotallb.Text = subtotal.ToString("N2");
 
+            //calulating tax
+            double tax = subtotal * 0.05;
+            Taxlb.Text = tax.ToString("N2");
         }
     }
 }

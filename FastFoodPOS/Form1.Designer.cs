@@ -708,7 +708,7 @@
             Taxlb.AutoSize = true;
             Taxlb.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Taxlb.ForeColor = Color.Red;
-            Taxlb.Location = new Point(243, 20);
+            Taxlb.Location = new Point(221, 20);
             Taxlb.Name = "Taxlb";
             Taxlb.Size = new Size(44, 28);
             Taxlb.TabIndex = 6;
