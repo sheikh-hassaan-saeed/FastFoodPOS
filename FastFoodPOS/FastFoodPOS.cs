@@ -6,31 +6,11 @@ using Application = System.Windows.Forms.Application;
 
 namespace FastFoodPOS
 {
-    public partial class Form1 : Form
+    public partial class FastFoodPOS : Form
     {
-        public Form1()
+        public FastFoodPOS()
         {
             InitializeComponent();
-        }
-
-        private void FastMeallb_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
         }
 
 
@@ -274,7 +254,7 @@ namespace FastFoodPOS
 
             if (CustardChBx.Checked == true)
             {
-                ReceiptTb.AppendText($"\t\t\t Custard: {custardtp}\n");
+                ReceiptTb.AppendText($"\t\t\tCustard: {custardtp}\n");
                 subtotal += custardtp;
             }
 

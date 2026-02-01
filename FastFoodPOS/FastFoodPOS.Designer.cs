@@ -1,6 +1,6 @@
 ﻿namespace FastFoodPOS
 {
-    partial class Form1
+    partial class FastFoodPOS
     {
         /// <summary>
         ///  Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FastFoodPOS));
             panel1 = new Panel();
             Closelb = new Label();
             Datelbl = new Label();
@@ -276,7 +276,6 @@
             Sandwichlb.Size = new Size(112, 30);
             Sandwichlb.TabIndex = 8;
             Sandwichlb.Text = "Sandwich";
-            Sandwichlb.Click += label3_Click;
             // 
             // pictureBox3
             // 
@@ -316,7 +315,6 @@
             Burgerlb.Size = new Size(92, 32);
             Burgerlb.TabIndex = 4;
             Burgerlb.Text = "Burger";
-            Burgerlb.Click += label2_Click;
             // 
             // Friestxt
             // 
@@ -346,7 +344,6 @@
             Frieslb.Size = new Size(67, 32);
             Frieslb.TabIndex = 4;
             Frieslb.Text = "Fries";
-            Frieslb.Click += label2_Click;
             // 
             // BurgerChBx
             // 
@@ -387,7 +384,6 @@
             FastMeallb.Size = new Size(154, 38);
             FastMeallb.TabIndex = 1;
             FastMeallb.Text = "Fast Meals";
-            FastMeallb.Click += FastMeallb_Click;
             // 
             // panel4
             // 
@@ -590,7 +586,6 @@
             label1.Size = new Size(270, 38);
             label1.TabIndex = 1;
             label1.Text = "Deserts And Drinks";
-            label1.Click += label1_Click;
             // 
             // panel5
             // 
@@ -736,7 +731,7 @@
             ReceiptTb.TabIndex = 4;
             ReceiptTb.Text = "";
             // 
-            // Form1
+            // FastFoodPOS
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -747,7 +742,7 @@
             Controls.Add(FriestxtBox);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "Form1";
+            Name = "FastFoodPOS";
             Text = "Form1";
             Load += Form1_Load;
             panel1.ResumeLayout(false);
