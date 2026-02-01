@@ -13,7 +13,7 @@ namespace FastFoodPOS.DAL
         {
             using (SqlConnection con = new SqlConnection(connectionString))
             {
-                string query = "SELECT FROM Admin_Login WHERE Username=@user AND UserPassword=@pass";
+                string query = "SELECT COUNT(1) FROM Admin_Login WHERE Username=@user AND UserPassword=@pass";
 
                 using (SqlCommand cmd = new SqlCommand(query, con))
                 {
