@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Microsoft.Data.SqlClient;
 using System.Text;
 
-namespace FastFoodPOS
+namespace FastFoodPOS.DAL
 {
     public class LoginDAL
     {
